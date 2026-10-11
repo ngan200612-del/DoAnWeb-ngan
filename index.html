@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102a43">
+  <title>NovaMart | Quản lý vận hành</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section class="auth-screen" id="authScreen">
+    <div class="auth-visual">
+      <a class="auth-brand" href="#"><span class="brand-mark">N<span>+</span></span><span><b>NovaMart</b><small>OPERATIONS SUITE</small></span></a>
+      <div class="auth-art-orbit orbit-a"></div><div class="auth-art-orbit orbit-b"></div>
+      <div class="auth-visual-copy"><span class="hero-tag">NOVAMART · CONTROL CENTER</span><h1>Quản lý thông minh,<br><em>vận hành nhẹ nhàng.</em></h1><p>Một không gian cho hàng hóa, nhân sự, kho hàng và báo cáo của cửa hàng.</p><div class="auth-feature-row"><span>✦ Quản lý sản phẩm</span><span>▦ Theo dõi tồn kho</span><span>↗ Báo cáo trực quan</span></div></div>
+      <div class="auth-floating-card"><span>✦</span><div><b>NovaMart</b><small>15 tuần · Một sản phẩm hoàn chỉnh</small></div></div>
+    </div>
+    <div class="auth-panel"><div class="auth-mobile-brand"><span class="brand-mark">N<span>+</span></span><b>NovaMart</b></div>
+      <div class="auth-box">
+        <div class="auth-eyebrow">CHÀO MỪNG BẠN</div><h2 id="authTitle">Đăng nhập</h2><p class="auth-subtitle" id="authSubtitle">Đăng nhập để tiếp tục vào hệ thống quản lý.</p>
+        <div class="auth-tabs" id="authTabs"><button class="auth-tab active" data-auth-mode="login">Đăng nhập</button><button class="auth-tab" data-auth-mode="register">Tạo tài khoản</button><button class="auth-tab" data-auth-mode="admin">Admin</button></div>
+        <form id="authForm" class="auth-form">
+          <label class="auth-field" id="authNameWrap" hidden>Họ và tên<input id="authName" autocomplete="name" placeholder="Nhập họ tên"></label>
+          <label class="auth-field">Email<input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+          <label class="auth-field" id="authPasswordWrap">Mật khẩu<input id="authPassword" type="password" autocomplete="current-password" placeholder="Nhập mật khẩu" minlength="6" required></label>
+          <label class="auth-field" id="authConfirmWrap" hidden>Nhập lại mật khẩu<input id="authConfirm" type="password" autocomplete="new-password" placeholder="Nhập lại mật khẩu"></label>
+          <label class="auth-field" id="authNewPasswordWrap" hidden>Mật khẩu mới<input id="authNewPassword" type="password" autocomplete="new-password" minlength="6" placeholder="Tạo mật khẩu mới"></label>
+          <div class="auth-error" id="authMessage" role="status"></div>
+          <button class="auth-submit" id="authSubmit" type="submit">Đăng nhập <span>↗</span></button>
+        </form>
+        <div class="auth-bottom" id="authBottom"><button type="button" class="auth-link" id="forgotPassword">Quên mật khẩu?</button><span>Chưa có tài khoản? <button type="button" class="auth-link" id="goRegister">Đăng ký</button></span></div>
+        <div class="auth-security-note" id="authSecurityNote">Bản demo học tập · Tài khoản được lưu trong trình duyệt.</div>
+      </div>
+    </div>
+  </section>
+  <div class="app-shell" id="appShell" style="display:none">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="NovaMart trang chủ">
+        <span class="brand-mark">N<span>+</span></span>
+        <span><b>NovaMart</b><small>OPERATIONS SUITE</small></span>
+      </a>
+      <div class="store-chip"><span class="live-dot"></span><span><b>Cửa hàng trung tâm</b><small>Hệ thống đang hoạt động</small></span></div>
+      <div class="nav-label">KHÔNG GIAN LÀM VIỆC</div>
+      <nav class="navigation">
+        <button class="nav-item active" data-page="dashboard"><span>◫</span> Tổng quan</button>
+        <button class="nav-item" data-page="products"><span>▦</span> Hàng hóa <i id="navProductCount">0</i></button>
+        <button class="nav-item" data-page="inventory"><span>▤</span> Kho & tồn kho</button>
+        <button class="nav-item" data-page="sales"><span>▧</span> Bán hàng / hóa đơn</button>
+        <button class="nav-item" data-page="people"><span>♙</span> Nhân sự & đối tác</button>
+        <button class="nav-item" data-page="reports"><span>▥</span> Báo cáo</button>
+        <button class="nav-item" data-page="roadmap"><span>◷</span> Lộ trình 15 tuần</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">✦</div><b>Demo đồ án</b><p>Dữ liệu được lưu trên trình duyệt này.</p><button id="resetDemo" class="text-button">Khôi phục dữ liệu mẫu ↗</button></div>
+        <div class="profile"><div class="avatar" id="profileAvatar">N</div><div><b id="profileName">Quản trị viên</b><small id="profileRole">Admin · NovaMart</small></div></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Mở menu">☰</button>
+        <div class="breadcrumbs"><span>NovaMart</span><span class="crumb-sep">/</span><b id="crumb">Tổng quan</b></div>
+        <div class="top-actions">
+          <div class="date-pill"><span>◷</span><span id="todayLabel">Hôm nay</span></div>
+          <button class="icon-button" id="quickAdd" title="Thêm nhanh">＋</button>
+          <div class="top-avatar" id="topAvatar">N</div><button class="logout-btn" id="logoutBtn" type="button">Đăng xuất ↗</button>
+        </div>
+      </header>
+
+      <section class="page active-page" id="page-dashboard">
+        <div class="welcome-row">
+          <div><div class="eyebrow"><span class="live-dot"></span> BẢNG ĐIỀU KHIỂN VẬN HÀNH</div><h1>Chào bạn, Ngân <span class="wave">✦</span></h1><p class="muted">Đây là tình hình hoạt động của cửa hàng hôm nay.</p></div>
+          <button class="primary-btn" data-action="add-product"><span>＋</span> Thêm hàng hóa</button>
+        </div>
+        <div class="hero-banner">
+          <div class="hero-copy"><span class="hero-tag">NOVAMART · CONTROL CENTER</span><h2>Mọi hoạt động,<br><em>trong tầm kiểm soát.</em></h2><p>Theo dõi hàng hóa, nhân sự, đơn bán và tồn kho tại một nơi.</p><button class="light-btn" data-goto="reports">Xem báo cáo <span>↗</span></button></div>
+          <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orb orb-a">✦</div><div class="orb orb-b">＋</div><div class="orb orb-c">▦</div><div class="hero-box box-back"></div><div class="hero-box box-front"><span>NM</span><b>FRESH<br>DAILY</b><small>GOOD CHOICE</small></div><div class="hero-spark spark-one">✧</div><div class="hero-spark spark-two">✦</div></div>
+          <div class="hero-glow"></div>
+        </div>
+        <div class="section-heading"><div><h2>Toàn cảnh cửa hàng</h2><p class="muted">Các chỉ số được cập nhật theo thao tác của bạn.</p></div><span class="updated-pill"><span class="live-dot"></span> Cập nhật trực tiếp</span></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Tổng hàng hóa</span><span class="stat-icon violet">▦</span></div><strong id="statProducts">0</strong><div class="stat-foot"><span class="positive">●</span> Mặt hàng đang quản lý</div><div class="stat-decoration deco-violet"></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Giá trị tồn kho</span><span class="stat-icon blue">▤</span></div><strong id="statStockValue">0 ₫</strong><div class="stat-foot">Theo giá nhập và số lượng tồn</div><div class="stat-decoration deco-blue"></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Đơn bán hàng</span><span class="stat-icon orange">▧</span></div><strong id="statOrders">0</strong><div class="stat-foot">Giao dịch đã ghi nhận</div><div class="stat-decoration deco-orange"></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Nhân sự</span><span class="stat-icon green">♙</span></div><strong id="statPeople">0</strong><div class="stat-foot">Nhân viên trong hệ thống</div><div class="stat-decoration deco-green"></div></article>
+        </div>
+        <div class="dashboard-grid">
+          <article class="panel chart-panel"><div class="panel-head"><div><h3>Hoạt động bán hàng</h3><p class="muted">Doanh thu từ hóa đơn đã tạo</p></div><span class="period-pill">Tất cả giao dịch</span></div><div class="chart-summary"><strong id="chartRevenue">0 ₫</strong><span class="summary-label">Tổng doanh thu ghi nhận</span></div><div class="bar-chart" id="barChart" aria-label="Biểu đồ doanh thu"></div><div class="chart-legend"><span><i></i> Doanh thu theo hóa đơn</span><span id="chartOrders">0 hóa đơn</span></div></article>
+          <article class="panel stock-panel"><div class="panel-head"><div><h3>Cảnh báo tồn kho</h3><p class="muted">Mặt hàng cần chú ý</p></div><button class="subtle-btn" data-goto="inventory">Xem kho ↗</button></div><div id="lowStockList" class="low-stock-list"></div></article>
+        </div>
+        <div class="panel recent-panel"><div class="panel-head"><div><h3>Hàng hóa nổi bật</h3><p class="muted">Một số mặt hàng trong danh mục</p></div><button class="subtle-btn" data-goto="products">Tất cả hàng hóa ↗</button></div><div id="featuredProducts" class="featured-products"></div></div>
+      </section>
+
+      <section class="page" id="page-products">
+        <div class="page-title-row"><div><div class="eyebrow">DANH MỤC</div><h1>Quản lý hàng hóa</h1><p class="muted">Thêm, chỉnh sửa, tìm kiếm và quản lý giá cùng số lượng tồn.</p></div><button class="primary-btn" data-action="add-product">＋ Thêm hàng hóa</button></div>
+        <div class="toolbar"><div class="search-box"><span>⌕</span><input id="productSearch" placeholder="Tìm theo tên hoặc mã hàng..."></div><select id="categoryFilter"><option value="">Tất cả danh mục</option><option>Đồ uống</option><option>Thực phẩm</option><option>Gia dụng</option><option>Chăm sóc cá nhân</option><option>Bánh kẹo</option></select><select id="stockFilter"><option value="">Mọi trạng thái</option><option value="low">Sắp hết hàng</option><option value="ok">Còn hàng</option></select><button class="outline-btn" id="exportProducts">⇩ Xuất CSV</button></div>
+        <div class="product-grid" id="productGrid"></div><div class="empty-state hidden" id="productEmpty"><span>▦</span><h3>Chưa tìm thấy hàng hóa</h3><p>Thử từ khóa khác hoặc thêm mặt hàng mới.</p><button class="primary-btn" data-action="add-product">＋ Thêm hàng hóa</button></div>
+      </section>
+
+      <section class="page" id="page-inventory">
+        <div class="page-title-row"><div><div class="eyebrow">QUẢN LÝ KHO</div><h1>Kho & tồn kho</h1><p class="muted">Theo dõi tồn kho, nhập hàng và điều chỉnh số lượng.</p></div><button class="primary-btn" data-action="stock-in">＋ Nhập kho</button></div>
+        <div class="stats-grid compact-stats"><article class="stat-card"><div class="stat-top"><span>Tổng số lượng</span><span class="stat-icon blue">▤</span></div><strong id="invUnits">0</strong><div class="stat-foot">Đơn vị hàng đang có</div></article><article class="stat-card"><div class="stat-top"><span>Đang cảnh báo</span><span class="stat-icon orange">!</span></div><strong id="invLow">0</strong><div class="stat-foot">Mặt hàng dưới ngưỡng 10</div></article><article class="stat-card"><div class="stat-top"><span>Danh mục</span><span class="stat-icon violet">▦</span></div><strong id="invCategories">0</strong><div class="stat-foot">Nhóm hàng đang kinh doanh</div></article></div>
+        <div class="panel"><div class="panel-head"><div><h3>Danh sách tồn kho</h3><p class="muted">Dùng nút nhập kho hoặc điều chỉnh để cập nhật số lượng.</p></div><div class="search-box small-search"><span>⌕</span><input id="inventorySearch" placeholder="Tìm hàng hóa..."></div></div><div class="table-wrap"><table><thead><tr><th>Hàng hóa</th><th>Mã hàng</th><th>Danh mục</th><th>Giá nhập</th><th>Tồn kho</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody id="inventoryTable"></tbody></table></div></div>
+      </section>
+
+      <section class="page" id="page-sales">
+        <div class="page-title-row"><div><div class="eyebrow">GIAO DỊCH</div><h1>Bán hàng & hóa đơn</h1><p class="muted">Tạo hóa đơn, cập nhật tồn kho và theo dõi doanh thu.</p></div><button class="primary-btn" data-action="new-sale">＋ Tạo hóa đơn</button></div>
+        <div class="stats-grid compact-stats"><article class="stat-card"><div class="stat-top"><span>Tổng hóa đơn</span><span class="stat-icon violet">▧</span></div><strong id="salesCount">0</strong><div class="stat-foot">Đã ghi nhận trong hệ thống</div></article><article class="stat-card"><div class="stat-top"><span>Doanh thu</span><span class="stat-icon green">₫</span></div><strong id="salesRevenue">0 ₫</strong><div class="stat-foot">Tổng giá trị hóa đơn</div></article></div>
+        <div class="panel"><div class="panel-head"><div><h3>Lịch sử hóa đơn</h3><p class="muted">Hóa đơn mới sẽ tự động trừ tồn kho.</p></div><div class="search-box small-search"><span>⌕</span><input id="salesSearch" placeholder="Tìm mã hóa đơn / khách hàng..."></div></div><div class="table-wrap"><table><thead><tr><th>Mã hóa đơn</th><th>Khách hàng</th><th>Ngày tạo</th><th>Số mặt hàng</th><th>Tổng tiền</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody id="salesTable"></tbody></table></div><div id="salesEmpty" class="empty-inline hidden">Chưa có hóa đơn. Bấm “Tạo hóa đơn” để bắt đầu.</div></div>
+      </section>
+
+      <section class="page" id="page-people">
+        <div class="page-title-row"><div><div class="eyebrow">ĐỐI TÁC & NHÂN SỰ</div><h1>Nhân sự & đối tác</h1><p class="muted">Quản lý nhân viên, nhà cung cấp và khách hàng.</p></div><button class="primary-btn" data-action="add-person">＋ Thêm người</button></div>
+        <div class="people-tabs"><button class="people-tab active" data-person-tab="employees">Nhân viên <span id="employeeCount">0</span></button><button class="people-tab" data-person-tab="suppliers">Nhà cung cấp <span id="supplierCount">0</span></button><button class="people-tab" data-person-tab="customers">Khách hàng <span id="customerCount">0</span></button></div>
+        <div class="toolbar"><div class="search-box"><span>⌕</span><input id="peopleSearch" placeholder="Tìm tên, số điện thoại..."></div><button class="outline-btn" id="exportPeople">⇩ Xuất CSV</button></div><div class="people-grid" id="peopleGrid"></div><div class="empty-state hidden" id="peopleEmpty"><span>♙</span><h3>Chưa có dữ liệu</h3><p>Thêm hồ sơ đầu tiên để bắt đầu quản lý.</p><button class="primary-btn" data-action="add-person">＋ Thêm người</button></div>
+      </section>
+
+      <section class="page" id="page-reports">
+        <div class="page-title-row"><div><div class="eyebrow">PHÂN TÍCH DỮ LIỆU</div><h1>Báo cáo & thống kê</h1><p class="muted">Tổng hợp tình hình hàng hóa, kho và giao dịch hiện tại.</p></div><button class="outline-btn" id="exportReport">⇩ Tải báo cáo CSV</button></div>
+        <div class="stats-grid"><article class="stat-card"><div class="stat-top"><span>Doanh thu</span><span class="stat-icon green">₫</span></div><strong id="reportRevenue">0 ₫</strong><div class="stat-foot">Tổng các hóa đơn đã tạo</div></article><article class="stat-card"><div class="stat-top"><span>Giá trị tồn kho</span><span class="stat-icon blue">▤</span></div><strong id="reportStock">0 ₫</strong><div class="stat-foot">Theo giá nhập hiện tại</div></article><article class="stat-card"><div class="stat-top"><span>Số sản phẩm</span><span class="stat-icon violet">▦</span></div><strong id="reportProducts">0</strong><div class="stat-foot">Mã hàng đang quản lý</div></article><article class="stat-card"><div class="stat-top"><span>Hàng sắp hết</span><span class="stat-icon orange">!</span></div><strong id="reportLow">0</strong><div class="stat-foot">Tồn kho dưới 10 đơn vị</div></article></div>
+        <div class="dashboard-grid"><article class="panel"><div class="panel-head"><div><h3>Cơ cấu hàng hóa</h3><p class="muted">Số mặt hàng theo danh mục</p></div></div><div id="categoryReport" class="category-report"></div></article><article class="panel"><div class="panel-head"><div><h3>Top hàng hóa theo tồn kho</h3><p class="muted">Số lượng hiện có</p></div></div><div id="topStockReport" class="top-stock-report"></div></article></div>
+      </section>
+
+      <section class="page" id="page-roadmap">
+        <div class="page-title-row"><div><div class="eyebrow">KẾ HOẠCH ĐỒ ÁN</div><h1>Lộ trình phát triển 15 tuần</h1><p class="muted">Theo kế hoạch trong tài liệu đề tài, từ khởi tạo đến bảo vệ.</p></div><span class="roadmap-badge">15 TUẦN</span></div>
+        <div class="roadmap-summary"><div><span class="summary-kicker">TIẾN ĐỘ KẾ HOẠCH</span><strong>4 giai đoạn · 15 cột mốc</strong><p>Đánh dấu từng tuần khi hoàn thành để theo dõi tiến độ đồ án.</p></div><div class="progress-ring" id="progressRing"><strong id="progressPercent">0%</strong><span>hoàn thành</span></div></div>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <footer class="footer"><span>© 2026 NovaMart · Đồ án Quản lý vận hành</span><span>Thiết kế demo <b>●</b> HTML · CSS · JavaScript</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-head"><div><div class="eyebrow">NOVAMART · FORM</div><h2 id="modalTitle">Thêm dữ liệu</h2></div><button class="close-modal" id="closeModal" aria-label="Đóng">×</button></div><form id="modalForm"><div id="modalFields" class="form-grid"></div><div class="modal-actions"><button type="button" class="outline-btn" id="cancelModal">Hủy</button><button type="submit" class="primary-btn" id="submitModal">Lưu dữ liệu <span>↗</span></button></div></form></section>
+  </div>
+  <div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
